@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+src/app/__init__.py
+src/main/__init__.py
+src/main.egg-info/PKG-INFO
+src/main.egg-info/SOURCES.txt
+src/main.egg-info/dependency_links.txt
+src/main.egg-info/entry_points.txt
+src/main.egg-info/not-zip-safe
+src/main.egg-info/requires.txt
+src/main.egg-info/top_level.txt

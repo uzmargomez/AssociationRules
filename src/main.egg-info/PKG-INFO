@@ -1,0 +1,27 @@
+Metadata-Version: 1.2
+Name: main
+Version: 0.0.1
+Summary: associationrules
+Home-page: UNKNOWN
+Author: Aldair Serrano & Daniel Vera & Uzmar Gomez
+Author-email: uzmar.gomez@softtek.com
+License: MIT
+Description: # Association Rules
+        
+        Practice project. We will use Flask and Docker.
+        
+        Team Members
+        
+        - Aldair 
+        - Daniel Vera 
+        - Uzmar Gomez
+Keywords: AssociationRules
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT Licence
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7

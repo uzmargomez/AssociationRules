@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>RESULTS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
+  <style>
+  .fakeimg {
+    height: 200px;
+    background: #aaa;
+  }
+  </style>
+</head>
+
+<body>
+<div class="jumbotron text-center text-white bg-dark" style="margin-bottom:0">
+    <h1>Association Rules</h1> 
+    <h3>Movies</h3>
+</div>
+<div class="navbar text-white bg-info">
+  <a class="active text-white" href="/">Home</a>
+  <a class="active text-white" href="/about">About</a>
+</div>
+
+<div class="container">
+<div class="row" style="margin-top:1cm">
+<div class="col-sm-5">
+
+<!-- <p>{{ test }}</p> -->
+
+<head>
+  <title>List of Movies</title>
+  <style>
+    table tr:not(:first-child){
+      cursor:pointer;transition:all .25s ease-in-out;
+    }
+    table tr:not(:first-child):hover{background-color:#ddd;}
+  </style>
+</head>
+
+<body>
+  <table class="table table-striped w-auto" id="movie_table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+      </tr>
+    </thead>
+    
+    {% for n in movies_list %}
+    <tr>
+      <td>{{ n }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  </div>
+<div class="col-sm-2">
+</div>
+<div class="col-sm-5" style="margin-top:1cm">
+
+  <form>
+      <label>Movie name:</label> <input type="text" name="movie_name" id="movie_name">
+      </form>
+      <input type="submit" onclick="showInput()" />
+      <p id='enteredmovie'></p>
+      
+      <div id="divloco"></div>
+  </div>
+  <script>
+    
+    var table = document.getElementById('movie_table');
+    var selected_movies=[];
+    for (var i = 0; i < table.rows.length; i++)
+    {
+      table.rows[i].onclick = function()
+      {
+        document.getElementById("movie_name").value = this.cells[0].innerHTML;
+      }
+      
+    }
+  
+  </script>
+  <script language="JavaScript">
+      // function showInput() {
+      //     document.getElementById('enteredmovie').innerHTML = 
+      //                 document.getElementById("movie_name").value;
+      // }
+
+      function showInput() {
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:5000/recom",
+          data: JSON.stringify({
+            "movie": document.getElementById("movie_name").value
+          }),
+          success: function(result) {
+            // console.log(result);
+            $("#divloco").html(result["movie"]);
+          },
+          dataType: "json",
+          contentType: "application/json"
+        });
+      }
+  </script>
+
+</div>
+</body>
+
+</html>
