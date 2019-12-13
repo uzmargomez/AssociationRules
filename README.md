@@ -1,9 +1,5 @@
 # Association Rules
 
-Practice project. We will use Flask and Docker.
+Practice project. We will use Flask and Docker. 
 
-Team Members
-
-- Aldair 
-- Daniel Vera 
-- Uzmar Gomez
+The main goal is to recommend movies to people based on what they like.
